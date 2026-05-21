@@ -1,42 +1,76 @@
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
-  background: #2563eb;
-  color: white;
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
 }
 
-.header__brand {
-  font-size: 24px;
-  font-weight: bold;
+.search {
+  padding: 20px;
 }
 
-.header__nav {
-  display: flex;
-  gap: 20px;
-}
-
-.home {
-  padding: 40px;
-}
-
-.search-bar {
-  margin-bottom: 20px;
-}
-
-.search-bar__input {
+.search input {
   width: 100%;
-  max-width: 450px;
+  max-width: 400px;
   padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  font-size: 16px;
 }
 
-.home__placeholder {
-  color: gray;
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(240px, 1fr)
+  );
+  gap: 20px;
+  padding: 20px;
 }
 
-.not-found {
-  padding: 40px;
+.card {
+  display: block;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.card__flag {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.card__body {
+  padding: 16px;
+}
+
+.card__name {
+  margin-bottom: 12px;
+  font-size: 20px;
+}
+
+.card__body p {
+  margin: 6px 0;
+  color: #555;
+}
+
+.card__body p span {
+  font-weight: bold;
+  color: #222;
+}
+
+.home__status {
+  padding: 20px;
+  color: #666;
+}
+
+.home__status--error {
+  color: red;
 }
