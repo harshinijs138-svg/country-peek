@@ -1,5 +1,6 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import CountryPage from './pages/CountryPage';
 import Header from "./components/Header";
 
 import Home from "./pages/Home";
@@ -13,8 +14,13 @@ function App() {
       <Header />
 
       <Routes>
-        <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home />} />
 
+          <Route
+           path="/country/:code"
+           element={<CountryPage />}
+          />
+ 
         <Route
           path="*"
           element={<NotFound />}
