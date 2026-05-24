@@ -1,13 +1,14 @@
-import { useState, useEffect } from "react";
-import SearchBar from "../components/SearchBar";
-import CountryCard from "../components/CountryCard";
-
+import { useState, useEffect } from "react"
+import SearchBar from "../components/SearchBar"
+import CountryCard from "../components/CountryCard"
+import FilterBar from '../components/FilterBar'
 function Home() {
-  const [query, setQuery] = useState("");
-  const [countries, setCountries] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-
+  const [query, setQuery] = useState("")
+  const [countries, setCountries] = useState([])
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
+  const [region, setRegion] = useState('All')
+  const [sortBy, setSortBy] = useState('')
   useEffect(() => {
     if (!query.trim()) {
       setCountries([]);
@@ -41,14 +42,36 @@ function Home() {
 
     return () => clearTimeout(timer);
   }, [query]);
+ const displayed = [...countries]
+  .filter(
+    (country) =>
+      region === 'All' || country.region === region
+  )
+  .sort((a, b) => {
+    if (sortBy === 'name') {
+      return a.name.common.localeCompare(
+        b.name.common
+      )
+    }
 
+    if (sortBy === 'population') {
+      return b.population - a.population
+    }
+
+    return 0
+  })    
   return (
     <div className="home">
       <SearchBar
         query={query}
         onQueryChange={setQuery}
       />
-
+    <FilterBar
+  region={region}
+  onRegionChange={setRegion}
+  sortBy={sortBy}
+  onSortChange={setSortBy}
+/>
       {loading && (
         <p className="home__status">
           Loading...
@@ -63,9 +86,9 @@ function Home() {
 
       {!loading &&
         !error &&
-        countries.length > 0 && (
+        displayed.length > 0 && (
           <div className="cards-grid">
-            {countries.map((country) => (
+            {displayed.map((country) => (
               <CountryCard
                 key={country.cca3}
                 country={country}
