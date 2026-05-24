@@ -62,6 +62,32 @@ const isSaved = favourites.some(
 >
   {isSaved ? '♥ Saved' : '♡ Save'}
 </button>
+<button
+  className={`fav-btn ${isSaved ? 'fav-btn--saved' : ''}`}
+  aria-label={
+    isSaved
+      ? `Remove ${name.common} from favourites`
+      : `Save ${name.common} to favourites`
+  }
+  aria-pressed={isSaved}
+  onClick={(e) => {
+    e.stopPropagation()
+
+    if (isSaved) {
+      dispatch({
+        type: 'REMOVE_FAVOURITE',
+        payload: cca3,
+      })
+    } else {
+      dispatch({
+        type: 'ADD_FAVOURITE',
+        payload: country,
+      })
+    }
+  }}
+>
+  {isSaved ? '♥ Saved' : '♡ Save'}
+</button>
       </div>
     </Link>
 

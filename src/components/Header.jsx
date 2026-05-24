@@ -15,7 +15,19 @@ const { theme, toggleTheme } = useTheme()
         <Link to="/favourites">Favourites</Link>
       </nav>
     </header>
+  
   );
 }
+<button
+  className="theme-toggle"
+  onClick={toggleTheme}
+  aria-label={
+    theme === 'light'
+      ? 'Switch to dark mode'
+      : 'Switch to light mode'
+  }
+>
+  {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
+</button>
 
 export default Header;
