@@ -181,4 +181,17 @@
     right: 0;
     border-right-color: var(--border);
   }
+  .fav-btn {
+  margin-top: 10px;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.fav-btn--saved {
+  background-color: crimson;
+  color: white;
+}
 }

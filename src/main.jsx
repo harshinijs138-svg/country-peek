@@ -4,12 +4,14 @@ import App from './App'
 import './index.css'
 import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider } from './context/ThemeContext'
-
+import { FavouritesProvider } from './context/FavouritesContext'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
       <ThemeProvider>
-        <App />
+        <FavouritesProvider>
+          <App />
+        </FavouritesProvider>
       </ThemeProvider>
     </BrowserRouter>
   </React.StrictMode>
