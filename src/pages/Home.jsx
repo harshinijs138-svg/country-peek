@@ -15,7 +15,9 @@ function Home() {
       setError(null);
       return;
     }
-
+    {countries.length === 0 && query && (
+    <p>No countries found.</p>
+    )}
     const timer = setTimeout(() => {
       setLoading(true);
 
