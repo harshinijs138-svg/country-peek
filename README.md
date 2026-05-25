@@ -20,8 +20,8 @@ CountryPeek is a React application for searching and exploring countries using t
 - Context API
 - useReducer
 - CSS Variables
-- RestCountries API
-
+- RestCountries API 
+Updated Part 2 submission 
 ## Run Locally
 
 ```bash
